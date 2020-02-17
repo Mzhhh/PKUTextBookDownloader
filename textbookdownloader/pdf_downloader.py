@@ -23,7 +23,7 @@ def download_pictures(meta_url, target_path='./', start=1, end=None, timeout=Non
                     continue
                 r = requests.get(url, timeout=timeout)
                 img = Image.open(BytesIO(r.content))
-                img.save(image_path+name_fmt.format(pid), 'PNG')
+                img.save(image_path+name_fmt.format(pid)+'.png', 'PNG')
                 img.close
                 process_counter.update(1)
                 if pid >= end:
