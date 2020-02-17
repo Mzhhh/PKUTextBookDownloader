@@ -1,0 +1,9 @@
+{
+    "target_path": "./",
+    "start": 1,
+    "end": null,
+    "name_fmt": "{:03d}",
+    "timeout": 60,
+    "target_width": 600,
+    "target_scale": null
+}
