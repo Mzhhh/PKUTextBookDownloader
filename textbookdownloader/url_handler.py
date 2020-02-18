@@ -61,11 +61,11 @@ def page_url_iter(meta_url, **kwargs):
     return (title, num_pages), _page_url_iter()
 
 
-def get_response(meta_url):
+def get_response(meta_url, timeout=20):
     '''
     Get response from the url
     '''
-    r = requests.get(meta_url)
+    r = requests.get(meta_url, timeout=timeout)
     if r.status_code != 200:
         raise Exception('Bad Access')
     r.encoding = r.apparent_encoding

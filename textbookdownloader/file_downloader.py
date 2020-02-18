@@ -56,8 +56,12 @@ def download_pdf(meta_url, target_path='./', start=1, end=None, timeout=None, **
                     break
     except (Exception, KeyboardInterrupt) as e:
         print('Oops, {} has occurred. Converting data to PDF.'.format(repr(e).split('(')[0], book_path))
-        images[0].save(book_path, 'PDF', save_all = True, quality=100, append_images = images[1:])
-        print('Convert succeeded. File stored as {}.'.format(book_path))
+        if images:
+            if len(images) == 1:
+                images[0].save(book_path, 'PDF',)
+            elif len(images) >= 1:
+                images[0].save(book_path, 'PDF', save_all = True, quality=100, append_images = images[1:])
+            print('Convert succeeded. File stored as {}.'.format(book_path))
         for img in images:
             img.close()
         sys.exit(0)

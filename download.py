@@ -1,4 +1,4 @@
-from textbookdownloader.pdf_downloader import *
+from textbookdownloader.file_downloader import *
 import json
 
 def main():
