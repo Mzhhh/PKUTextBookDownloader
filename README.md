@@ -1,16 +1,24 @@
 # Textbook Downloader
 
-自己写的 [PKU电子教参平台](http://162.105.138.126/Usp/) 下载工具
+[PKU电子教参平台](http://162.105.138.126/Usp/) 下载工具
 
 
 
 ## 安装
 
-暂时没有上传到 GitHub，所以你能看到这个 readme 应该已经下载了源代码了 （骗你的）
+该项目 Python3 环境运行（开发环境为 Python 3.7.3），可以从 [Python官网](https://www.python.org) 下载安装
 
-需要 Python3 环境运行（开发环境为 Python 3.7.3）
+将本项目下载到本地，可以点击右侧绿色的 `Clone or download` 或在命令行中输入 
 
-依赖包：`requests`, `urllib`, `beautifulsoup4`, `Pillow` （可自行使用 pip 或 conda 安装）
+```bash
+$ git clone https://github.com/Mzhhh/PKUTextBookDownloader.git
+```
+
+项目依赖包：`requests`, `urllib3`, `beautifulsoup4`, `Pillow` （可自行使用 pip 安装）
+
+```bash
+$ pip install requests urllib beautifulsoup4 urllib3 Pillow
+```
 
 
 
@@ -18,7 +26,7 @@
 
 连接 PKU VPN，在浏览器内登陆 [PKU电子教参平台](http://162.105.138.126/Usp/) 找到需要的教材，此处以某教材为例
 
-![demo1](assets/demo1.png)
+![demo1](img/demo1.png)
 
 进入在线阅览模式，记录相应 URL
 
@@ -27,8 +35,8 @@
 打开命令行并输入
 
 ```bash
-cd PATH/TextbookDownloader
-python download.py
+$ cd PATH/TextbookDownloader
+$ python download.py
 ```
 
 按照提示输入阅读器界面 URL 及目标下载格式（默认为 pdf），开始下载（注意全过程中必须保持 VPN 连接）
@@ -55,7 +63,7 @@ python download.py
 
 说明如下：
 
-* target_path`: 文件存放路径（若下载格式为 png 则自动创建文件夹存放）
+* `target_path`: 文件存放路径（若下载格式为 png 则自动创建文件夹存放）
 
 * `start`, `end`: 起始、结束页面编号（以在线阅读器显示为准）
 
