@@ -35,7 +35,7 @@ $ pip install requests urllib beautifulsoup4 urllib3 Pillow
 打开命令行并输入
 
 ```bash
-$ cd PATH/TextbookDownloader
+$ cd PATH/PKUTextBookDownloader
 $ python download.py
 ```
 

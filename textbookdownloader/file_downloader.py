@@ -8,7 +8,11 @@ from tqdm import tqdm
 
 
 def download_pictures(meta_url, target_path='./', start=1, end=None, timeout=None, name_fmt='{:03d}', **kwargs):
-    (title, num_pages), url_iter = page_url_iter(meta_url, **kwargs)
+    try:
+        (title, num_pages), url_iter = page_url_iter(meta_url, **kwargs)
+    except Exception as e:
+        print('Oops. Cannot decode information. Please check your URL.')
+        sys.exit(0)
     title = '<unknown>' if not title else title
     print('URL decode succeeded. Ready to download {}.'.format(title))
     os.makedirs(target_path + title, exist_ok=True)
@@ -35,7 +39,11 @@ def download_pictures(meta_url, target_path='./', start=1, end=None, timeout=Non
 
 
 def download_pdf(meta_url, target_path='./', start=1, end=None, timeout=None, **kwargs):
-    (title, num_pages), url_iter = page_url_iter(meta_url, **kwargs)
+    try:
+        (title, num_pages), url_iter = page_url_iter(meta_url, **kwargs)
+    except Exception as e:
+        print('Oops. Cannot decode information. Please check your URL.')
+        sys.exit(0)
     title = '<unknown>' if not title else title
     print('URL decode succeeded. Ready to download {}.'.format(title))
     os.makedirs(target_path, exist_ok=True)
